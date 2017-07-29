@@ -98,6 +98,11 @@ function Hud:draw(game)
             v.State == "Active" and (b.y + b.h - 30) or (b.y + b.h - 20),
             b.w, "center")
     end
+
+    -- decision options are handled by the hud too
+    if (game.SubState ~= "News") then
+    
+    end
 end
 
 function Hud:mousemoved(x, y)
@@ -144,8 +149,6 @@ function Hud:mousereleased(x, y, button)
                 -- set new active
                 v.State = "Active"
                 self.ActiveButton = k
-
-                
 
                 -- change substate
                 local gs = Gamestate.current()

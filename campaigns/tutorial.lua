@@ -33,11 +33,11 @@ function campaign:Initialise(game) -- this initialises stacks and stats at the s
             Opinion = "If we cut healthcare down we will become more powerful than you can possibly imagine. With that power we can at least make healthcare profitable, if not actually effective."
         },
         Options = {
-            Option1 = {
+            {
                 Text = "Calling an early election is too risky. The referendum was divisive and this will be too.",
                 Disabled = true
             },
-            Option2 = {
+            {
                 Text = "We're way ahead in the polls. An election is a guaranteed success, especially if I regale the public with tales of my field frolicking days to make me appear relatable.",
                 Result = function(game)
                     -- stack up some more decisions!

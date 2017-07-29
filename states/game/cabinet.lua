@@ -1,7 +1,10 @@
+local Assets = require "assets.assets"
+
 local Cabinet = {}
 
 function Cabinet:draw()
-    love.graphics.print("Cabinet", 400, 400)
+    love.graphics.setFont(Assets.Fonts.Header1)
+    love.graphics.print("Cabinet", 20, 140)
 end
 
 return Cabinet
