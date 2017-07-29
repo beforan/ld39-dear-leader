@@ -43,7 +43,7 @@ function Game:draw()
     if self.SubState then self.SubState:draw(self)
     else
         love.graphics.setColor(UiParams.TextColours.Text)
-        love.graphics.print("Please select a view from the left hand side.", 150, 400)
+        love.graphics.print("Please select a view from the tabs above.", 150, 400)
     end
 
     if self.Messages[1] then self:drawMessage() end
@@ -70,7 +70,7 @@ end
 function Game:keyreleased(key)
     -- handle some global inputs like pause, quit etc?
     
-    if(self.Messages[1]) then
+    if self.Messages[1] then
         -- input block on the modal message
         if key == "return" or key == "kpenter" then
             table.remove(self.Messages, 1)
@@ -81,32 +81,45 @@ function Game:keyreleased(key)
 end
 
 function Game:mousemoved(x, y)
-    --bounds check for message button hover
-    local b = UiParams.MessageButton
-    if boundsCheck(x, y, b.x, b.y, b.w, b.h) then
-        if love.mouse.isDown(1) then
-            self.Messages.ButtonState = "Down"
+    if self.Messages[1] then
+        --bounds check for message button hover
+        local b = UiParams.MessageButton
+        if boundsCheck(x, y, b) then
+            if love.mouse.isDown(1) then
+                self.Messages.ButtonState = "Down"
+            else
+                self.Messages.ButtonState = "Hover"
+            end
         else
-            self.Messages.ButtonState = "Hover"
+            self.Messages.ButtonState = "Normal"
         end
     else
-        self.Messages.ButtonState = "Normal"
+        Hud:mousemoved(x, y)
     end
 end
 
 function Game:mousepressed(x, y, button)
-    --bounds check for message button down
-    local b = UiParams.MessageButton
-    if boundsCheck(x, y, b.x, b.y, b.w, b.h) then
-        self.Messages.ButtonState = "Down"
+    
+    if self.Messages[1] then
+        --bounds check for message button down
+        local b = UiParams.MessageButton
+        if boundsCheck(x, y, b) then
+            self.Messages.ButtonState = "Down"
+        end
+    else
+        Hud:mousepressed(x, y, b)
     end
 end
 
 function Game:mousereleased(x, y, button)
-    --bounds check for message button action
-    local b = UiParams.MessageButton
-    if boundsCheck(x, y, b.x, b.y, b.w, b.h) then
-        table.remove(self.Messages, 1)
+    if self.Messages[1] then
+        --bounds check for message button action
+        local b = UiParams.MessageButton
+        if boundsCheck(x, y, b) then
+            table.remove(self.Messages, 1)
+        end
+    else
+        Hud:mousereleased(x, y, b)
     end
 end
 

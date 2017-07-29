@@ -26,5 +26,11 @@ function resetColour()
 end
 
 function boundsCheck(mx, my, x, y, w, h)
+    if type(x) == "table" then -- allow a passing a bounding box table instead of separate vals
+        h = x.h
+        w = x.w
+        y = x.y
+        x = x.x
+    end
     return mx > x and mx < x + w and my > y and my < y + h
 end
