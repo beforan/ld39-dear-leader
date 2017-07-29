@@ -1,5 +1,6 @@
 local Ui = {
     ClearColour = { 255, 255, 255 },
+    StarBadgeColour = { 255, 0, 0 },
 
     TextColours = {
         Title = { 180, 180, 255 },
@@ -8,6 +9,10 @@ local Ui = {
         Bad = { 255, 180, 180 },
         Overlay = { 255, 255, 255 },
         Text = { 0, 0, 0 }
+    },
+
+    News = {
+        PageColour = { 155, 155, 155 }
     },
     
     Hud = {

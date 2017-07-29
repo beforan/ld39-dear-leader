@@ -72,7 +72,31 @@ function Hud:draw(game)
             b.x, v.State == "Active" and (b.y - 10) or b.y,
             b.w, v.State == "Active" and (b.h + 10) or b.h)
         love.graphics.setColor(UiParams.TextColours.Text)
-        love.graphics.printf(k, b.x, b.y + b.h - 20, b.w, "center")
+
+        love.graphics.setFont(Assets.Fonts.HudButtonIcons)
+        love.graphics.printf(Assets.Icons[k], b.x,
+            v.State == "Active" and (b.y + 10) or (b.y + 20),
+            b.w, "center")
+
+        -- check for star badge worthiness
+        local starbadge = false
+        if k == "News" then
+            if game.NewsUpdate then starbadge = true end
+        else
+            if #game.Stacks[k] > 0 then starbadge = true end
+        end
+
+        if starbadge then
+            love.graphics.setColor(UiParams.StarBadgeColour)
+            love.graphics.setFont(Assets.Fonts.StarBadge)
+            love.graphics.print(Assets.Icons.StarBadge, b.x + b.w - 20, b.y + 10)
+        end
+
+        love.graphics.setColor(UiParams.TextColours.Text)
+        love.graphics.setFont(Assets.Fonts.Default)
+        love.graphics.printf(k, b.x,
+            v.State == "Active" and (b.y + b.h - 30) or (b.y + b.h - 20),
+            b.w, "center")
     end
 end
 
@@ -121,9 +145,12 @@ function Hud:mousereleased(x, y, button)
                 v.State = "Active"
                 self.ActiveButton = k
 
+                
+
                 -- change substate
                 local gs = Gamestate.current()
                 gs.SubState = gs.SubStates[k]
+                if k == "News" then gs.NewsUpdate = false end -- mark as read on switching for news
             end
         end
     end

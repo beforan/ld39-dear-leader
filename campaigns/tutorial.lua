@@ -47,11 +47,12 @@ function campaign:Initialise(game) -- this initialises stacks and stats at the s
     })
 
     game.News = {
-        TheMoon = "We love Dear Leader.",
-        TheSentinel = "Opposition preferable to Dear Leader.",
-        TheModerate = "Dear Leader moderately popular, suggesting she deserves more power.",
-        TheDailyRage = "Dear Leader guarantees Flopzix will purge all undesirable everythings."
+        ["The Moon"] = "We love Dear Leader. Dear Leader will lead us to great victory through Flopzix.",
+        ["The Sentinel"] = "Opposition justifiably preferable to Dear Leader. This edition filled with columns justifying it.",
+        ["The Unaffiliated"] = "Dear Leader moderately popular, suggesting she deserves more power.",
+        ["The Daily Rage"] = "Dear Leader guarantees Flopzix will purge all undesirable everythings. Finally we can be rid of everything holding us back."
     }
+    game.NewsUpdate = true
 
     table.insert(game.Messages, self.Introduction)
 end
