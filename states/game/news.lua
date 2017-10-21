@@ -1,7 +1,7 @@
 local Assets = require "assets.assets"
 local UiParams = require "params.ui"
 
-local News = {}
+local News = { Name = "News" }
 
 local pages = {
     {

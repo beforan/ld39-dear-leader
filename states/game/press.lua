@@ -1,7 +1,7 @@
-local Cabinet = {}
+local Press = { Name = "Press" }
 
-function Cabinet:draw()
+function Press:draw()
     love.graphics.print("Press", 400, 400)
 end
 
-return Cabinet
+return Press

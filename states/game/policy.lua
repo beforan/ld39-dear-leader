@@ -1,7 +1,7 @@
-local Cabinet = {}
+local Policy = { Name = "Policy" }
 
-function Cabinet:draw()
+function Policy:draw()
     love.graphics.print("Policy", 400, 400)
 end
 
-return Cabinet
+return Policy

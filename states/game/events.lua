@@ -1,7 +1,7 @@
-local Cabinet = {}
+local Events = { Name = "Events" }
 
-function Cabinet:draw()
+function Events:draw()
     love.graphics.print("Events", 400, 400)
 end
 
-return Cabinet
+return Events

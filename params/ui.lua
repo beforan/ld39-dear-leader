@@ -1,6 +1,7 @@
 local Ui = {
     ClearColour = { 255, 255, 255 },
     StarBadgeColour = { 255, 0, 0 },
+    OverlayColour = { 0, 0, 0, 220 },
 
     TextColours = {
         Title = { 180, 180, 255 },
@@ -19,6 +20,7 @@ local Ui = {
         Colours = {
             Background = { 47, 48, 56 },
             LeaderBackground = { 155, 155, 155 },
+            DecisionBackground = { 99, 119, 178 },
             EmptyBar = { 200, 200, 200 },
             Popularity = { 132, 179, 255 },
             OppositionPopularity = { 252, 78, 78 },

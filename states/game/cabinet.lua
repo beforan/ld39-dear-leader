@@ -1,6 +1,6 @@
 local Assets = require "assets.assets"
 
-local Cabinet = {}
+local Cabinet = { Name = "Cabinet" }
 
 function Cabinet:draw()
     love.graphics.setFont(Assets.Fonts.Header1)

@@ -52,7 +52,7 @@ end
 -- Game manages modal messages itself; basically everything else is deferred to substates or the hud
 function Game:drawMessage()
     --modal overlay
-    love.graphics.setColor(UiParams.TextColours.Text)
+    love.graphics.setColor(UiParams.OverlayColour)
     love.graphics.rectangle("fill", 0, love.graphics.getHeight() / 2 - love.graphics.getHeight() / 4, love.graphics.getWidth(), love.graphics.getHeight() / 2)
 
     -- button
